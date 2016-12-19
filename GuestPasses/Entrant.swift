@@ -17,6 +17,10 @@ typealias Discount = Float
 
 class Entrant {
     
+    init() {
+        
+    }
+    
     /// Determine whether an entrant is permitted entry to rides and park areas or discounts.
     ///
     /// - Returns: Returns true if entrant has proper permissions, else false.
@@ -36,48 +40,44 @@ extension Entrant: RideAccessible {
     
 }
 
-
 // These protocols loosely define different classes of people admitted entry to the park.
 
 // This protocol is the base for all employees.
 protocol Employable: Addressable {
+    var type: EmployeeType { get }
+}
+
+enum EmployeeType {
+    case FoodServices
+    case RideServices
+    case Maintenance
+    case Manager
 }
 
 // This protocol is the base for guests.
-protocol GuestType {
-}
-// This protocol is the base for managers.
-protocol ManagerialType: RideControllable, KitchenAccessible, MaintenanceAccessible, OfficeAccessible  {
+protocol Guest {
+    var type: GuestType { get }
 }
 
-// These protocols define required data, permitted access, and other chunkable features
-
-/// This protocol defines access to amusement areas.
-protocol RideAccessible {
-}
-/// This protocol defines access to ride controls.
-protocol RideControllable {
-}
-/// This protocol defines access to the kitchen areas.
-protocol KitchenAccessible {
-}
-/// This protocol defines access to maintenance rooms.
-protocol MaintenanceAccessible {
-}
-/// This protocol defines access to managerial offices.
-protocol OfficeAccessible {
+enum GuestType {
+    case classic
+    case vip
+    case freeChild
 }
 
 /// This protocol defines personally identifiable information such as name and address.
 protocol Addressable {
-    static var firstName: String { get }
-    static var lastName: String { get }
-    static var address: HomeAddress { get }
+    var firstName: String { get }
+    var lastName: String { get }
+    var address: HomeAddress { get }
 }
 
 /// This protocol defines free admittance to the park.
 protocol FreelyAdmissible {
-    static var birthDate: Date { get }
+    var birthDate: Date { get }
+}
+
+protocol RideAccessible {
 }
 
 /// This protocol defines whether an entrant is able to skip lines.

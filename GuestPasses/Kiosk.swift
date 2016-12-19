@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+enum KioskLocation {
+    case Amusement
+    case Kitchen
+    case RideControl
+    case Maintenance
+    case Office
+    case Restaurant
+    case MerchBooth
+}
+
+final class Kiosk {
+    
+}
