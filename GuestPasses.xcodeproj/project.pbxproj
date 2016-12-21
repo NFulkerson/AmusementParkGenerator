@@ -26,6 +26,7 @@
 		D886E0501DFE98B400F45BBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D886E0521DFE98B400F45BBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D886E0581DFE99C600F45BBC /* Entrant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entrant.swift; sourceTree = "<group>"; };
+		D8D0CA671E092106005B20D0 /* TestingNames.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestingNames.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +66,7 @@
 				D886E04F1DFE98B400F45BBC /* LaunchScreen.storyboard */,
 				D886E0521DFE98B400F45BBC /* Info.plist */,
 				D886E0581DFE99C600F45BBC /* Entrant.swift */,
+				D8D0CA671E092106005B20D0 /* TestingNames.playground */,
 				D860E32B1E07C5FD0064C74A /* Kiosk.swift */,
 			);
 			path = GuestPasses;
