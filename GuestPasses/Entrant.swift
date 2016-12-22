@@ -10,33 +10,21 @@ import Foundation
 
 typealias PercentDiscount = Float
 
-// We'll define entrant as a class as, 
-// a) Entrants are unique individuals. They cannot be 'copies' of one another.
-// b ) We want to verify whether a particular entry pass has been swiped in quick succession at the same ride.
-// Checking such a thing would be tricky or impossible with value types.
-
 struct Person {
-
 }
 
-protocol Entrant: RideAccessible {
+protocol Entrant {
     func swipe() -> Bool
 }
 
-// These protocols loosely define different classes of people admitted entry to the park.
-
-// This protocol is the base for all employees.
-protocol Employable: Addressable {
-    var type: EmployeeType { get }
+extension Entrant {
+    // TODO: Implement swipe functionality
+    func swipe() -> Bool {
+        return false
+    }
 }
 
-enum EmployeeType {
-    case FoodServices
-    case RideServices
-    case Maintenance
-    case Manager
-}
-
+// MARK: Guest - Classic, VIP, Child
 struct Guest {
     var type: GuestType
     
@@ -45,7 +33,43 @@ struct Guest {
         case vip
         case freeChild
     }
+    
+    init() {
+        self.type = .classic
+    }
 }
+
+// MARK: Hourly Employee, Manager
+
+struct Employee: Entrant, Employable {
+    
+    var name: Name
+    var address: HomeAddress
+    var type: EmployeeType
+    
+    enum EmployeeType {
+        case FoodServices
+        case RideServices
+        case Maintenance
+        case Manager
+    }
+    
+    init(name: Name, address: HomeAddress, type: Employee.EmployeeType) {
+        self.name = name
+        self.address = address
+        self.type = type
+    }
+    
+    init(with firstName: String, middleName: String?, lastName: String, address: HomeAddress, type: EmployeeType) {
+        let name = Name(first: firstName, middle: middleName, last: lastName)
+        self.init(name: name, address: address, type: type)
+    }
+}
+
+protocol Employable: Addressable {
+    init(name: Name, address: HomeAddress, type: Employee.EmployeeType)
+}
+
 
 /// This protocol defines personally identifiable information such as name and address.
 protocol Addressable {
@@ -58,14 +82,7 @@ protocol FreelyAdmissible {
     var birthDate: Date { get }
 }
 
-protocol RideAccessible {
-}
-
-/// This protocol defines whether an entrant is able to skip lines.
-protocol Skippable {
-    func skipLine()
-}
-
+// MARK: Helpers
 struct Name {
     let first: String
     let middle: String?
@@ -74,6 +91,19 @@ struct Name {
         guard let middle = middle else { return "\(first) \(last)" }
         return "\(first) \(middle) \(last)"
     }
+    
+    init(first: String, middle: String?, last: String) {
+        self.first = first
+        self.middle = middle
+        self.last = last
+    }
+    
+    init(first: String, last: String) {
+        self.first = first
+        self.middle = nil
+        self.last = last
+    }
+    
 }
 
 struct HomeAddress {
@@ -82,3 +112,4 @@ struct HomeAddress {
     let state: String
     let zipCode: Int
 }
+
