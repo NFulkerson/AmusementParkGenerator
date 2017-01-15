@@ -18,6 +18,6 @@ enum KioskLocation {
     case MerchBooth
 }
 
-final class Kiosk {
-    
+struct Kiosk {
+    // TODO: Requires implementation
 }

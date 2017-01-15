@@ -9,23 +9,39 @@
 import Foundation
 
 typealias PercentDiscount = Float
-
-struct Person {
+// All Entrants are, per the spec, able to access rides--so we make them adhere to the RideAccessible protocol
+// Were this to change, we could simply remove this protocol and grant privileges to other groups
+protocol Entrant: RideAccessible {
+    // All entrants can swipe a pass, whether guest or employee, so swipe resides here.
+    func swipe(kiosk: Kiosk) -> Bool
 }
+// Kiosk is a simple struct representing a place of entry or a swipeable station. This is
+// what returns whether the entrant has sufficient permissions, and also represents the
+// tests conducted by the pass generator.
 
-protocol Entrant {
-    func swipe() -> Bool
-}
+
 
 extension Entrant {
-    // TODO: Implement swipe functionality
-    func swipe() -> Bool {
-        return false
+    // TODO: Implement returned value from kiosk
+    func swipe(kiosk: Kiosk) -> Bool {
+        return true
     }
 }
 
-// MARK: Guest - Classic, VIP, Child
-struct Guest {
+// These protocols loosely define different classes of people admitted entry to the park.
+// This protocol is the base for all employees.
+protocol Employable: Addressable {
+    var type: EmployeeType { get }
+}
+
+enum EmployeeType {
+    case FoodServices
+    case RideServices
+    case Maintenance
+    case Manager
+}
+
+struct Guest: Entrant {
     var type: GuestType
     
     enum GuestType {
@@ -33,43 +49,20 @@ struct Guest {
         case vip
         case freeChild
     }
-    
-    init() {
-        self.type = .classic
-    }
 }
-
-// MARK: Hourly Employee, Manager
 
 struct Employee: Entrant, Employable {
-    
-    var name: Name
-    var address: HomeAddress
+    let name: Name
+    let address: HomeAddress
     var type: EmployeeType
-    
-    enum EmployeeType {
-        case FoodServices
-        case RideServices
-        case Maintenance
-        case Manager
-    }
-    
-    init(name: Name, address: HomeAddress, type: Employee.EmployeeType) {
-        self.name = name
-        self.address = address
-        self.type = type
-    }
-    
-    init(with firstName: String, middleName: String?, lastName: String, address: HomeAddress, type: EmployeeType) {
-        let name = Name(first: firstName, middle: middleName, last: lastName)
-        self.init(name: name, address: address, type: type)
+    func swipe() -> Bool {
+        return true
     }
 }
 
-protocol Employable: Addressable {
-    init(name: Name, address: HomeAddress, type: Employee.EmployeeType)
+struct Baby: Entrant, FreelyAdmissible {
+    var birthDate: Date
 }
-
 
 /// This protocol defines personally identifiable information such as name and address.
 protocol Addressable {
@@ -77,39 +70,5 @@ protocol Addressable {
     var address: HomeAddress { get }
 }
 
-/// This protocol defines free admittance to the park.
-protocol FreelyAdmissible {
-    var birthDate: Date { get }
-}
 
-// MARK: Helpers
-struct Name {
-    let first: String
-    let middle: String?
-    let last: String
-    var full: String {
-        guard let middle = middle else { return "\(first) \(last)" }
-        return "\(first) \(middle) \(last)"
-    }
-    
-    init(first: String, middle: String?, last: String) {
-        self.first = first
-        self.middle = middle
-        self.last = last
-    }
-    
-    init(first: String, last: String) {
-        self.first = first
-        self.middle = nil
-        self.last = last
-    }
-    
-}
-
-struct HomeAddress {
-    let streetAddress: String
-    let city: String
-    let state: String
-    let zipCode: Int
-}
 
