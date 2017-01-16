@@ -52,3 +52,8 @@ struct Name {
         self.last = last
     }
 }
+
+struct DiscountAccess {
+    var foodDiscount: PercentDiscount
+    var merchandiseDiscount: PercentDiscount
+}

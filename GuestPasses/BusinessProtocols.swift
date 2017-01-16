@@ -23,7 +23,7 @@ protocol LineSkippable {
 }
 
 // MARK: - Location Access
-
+// How should these protocols be assigned to Employees?
 protocol AmusementAccessible {
 }
 
@@ -37,4 +37,9 @@ protocol MaintenanceAccessible {
 }
 
 protocol OfficeAccessible {
+}
+
+// Merch
+protocol DiscountQualifiable {
+    associatedtype DiscountAccess
 }
