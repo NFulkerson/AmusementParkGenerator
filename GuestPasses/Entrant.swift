@@ -20,11 +20,16 @@ protocol Entrant: RideAccessible {
 // tests conducted by the pass generator.
 
 
-
 extension Entrant {
     // TODO: Implement returned value from kiosk
     func swipe(kiosk: Kiosk) -> Bool {
-        return true
+        let accessGranted = kiosk.determinePermissions(for: self)
+        if accessGranted {
+            print("\(self): Access granted for \(kiosk.location)")
+        } else {
+            print("\(self): Access denied for \(kiosk.location)")
+        }
+        return accessGranted
     }
 }
 
@@ -41,27 +46,41 @@ enum EmployeeType {
     case Manager
 }
 
-struct Guest: Entrant {
+struct Guest: Entrant, DiscountQualifiable {
     var type: GuestType
-    
+    let discounts: DiscountAccess = DiscountAccess()
     enum GuestType {
         case classic
         case vip
-        case freeChild
     }
 }
 
-struct Employee: Entrant, Employable {
+struct Employee: Entrant, Employable, DiscountQualifiable {
     let name: Name
     let address: HomeAddress
     var type: EmployeeType
-    func swipe() -> Bool {
-        return true
-    }
+    let discounts: DiscountAccess = DiscountAccess()
 }
 
-struct Baby: Entrant, FreelyAdmissible {
+// TODO: - Extend so we can calculate whether the baby qualifies for free entry.
+struct FreeChild: Entrant, FreelyAdmissible {
     var birthDate: Date
+    
+    init(birthDate: String) throws {
+        // Definitely not the right way to do it, but it'll do.
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        guard let bday = dateFormatter.date(from: birthDate) else {
+            throw DOBError.dateConversionError("Couldn't create date from string.")
+        }
+        self.birthDate = bday
+        if bday.age > 5 {
+            throw DOBError.dobInvalid("Child is too old to qualify for free admission.")
+        } else if bday.age < 0 {
+            throw DOBError.dobInvalid("We don't need passes for children not born yet.")
+        }
+    }
 }
 
 /// This protocol defines personally identifiable information such as name and address.

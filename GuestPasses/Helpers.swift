@@ -29,7 +29,7 @@ struct HomeAddress {
     }
     
     enum AddressError: Error {
-        case missingStreetAddress, missingState, missingCity
+        case missingStreetAddress, missingState, missingCity, missingZip
     }
 }
 
@@ -51,9 +51,49 @@ struct Name {
         self.middle = nil
         self.last = last
     }
+    
+    enum NameError: Error {
+        case firstNameMissing
+        case lastNameMissing
+    }
 }
 
+// This seemed like the best compromise regarding responsibility for discounts
+// It doesn't belong in Guest or Employee, as both could potentially qualify for discounts--
+// but many do not. 
+// It doesn't quite belong in the Kiosk either--the Kiosk's job is to read access permissions and values,
+// not grant them. Perhaps should be implemented in the protocol.
+
 struct DiscountAccess {
-    var foodDiscount: PercentDiscount
-    var merchandiseDiscount: PercentDiscount
+    
+    func retrieveDiscounts(for entrant: DiscountQualifiable) throws -> (food: PercentDiscount, merchandise: PercentDiscount)? {
+        if entrant is Employee {
+            let employee = entrant as! Employee
+            let type = employee.type
+            switch type {
+            case .FoodServices, .Maintenance, .RideServices:
+                return (food: 0.15, merchandise: 0.25)
+            case .Manager:
+                return (food: 0.25, merchandise: 0.25)
+            }
+        } else if entrant is Guest {
+            let guest = entrant as! Guest
+            let type = guest.type
+            switch type {
+            case .vip:
+                return (food: 0.10, merchandise: 0.20)
+            default:
+                return nil
+            }
+        } else {
+            throw EntrantConversionError.UnidentifiableEntrant
+        }
+        
+    }
+}
+
+extension Date {
+    var age: Int {
+        return Calendar.current.dateComponents([.year], from: self, to: Date()).year!
+    }
 }

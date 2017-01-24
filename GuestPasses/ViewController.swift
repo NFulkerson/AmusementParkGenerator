@@ -12,21 +12,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let maggie = Baby(birthDate: Date(timeIntervalSinceNow: TimeInterval(exactly: -25000000.00)!))
-        if maggie as Entrant is FreelyAdmissible {
-            print("Of course she is")
-        } else {
-            print("This won't happen")
-        }
-        
-        if maggie as Entrant is Employable {
-            print("We employ babies now.")
-        } else {
-            print("Don't be ridiculous, we don't employ babies.")
-        }
-
-        
+        let rooms = AccessControlList().rooms
+        let myBestGuest = Guest(type: .vip)
+        checkPermissions(for: myBestGuest, in: rooms)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +22,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func checkPermissions(for entrant: Entrant, in rooms: [Kiosk]) {
+        for kiosk in rooms {
+            print("Swiping access for \(kiosk.location)")
+            print(entrant.swipe(kiosk: kiosk))
+        }
+    }
 
 }
 

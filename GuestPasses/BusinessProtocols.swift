@@ -41,5 +41,5 @@ protocol OfficeAccessible {
 
 // Merch
 protocol DiscountQualifiable {
-    associatedtype DiscountAccess
+    var discounts: DiscountAccess { get }
 }
