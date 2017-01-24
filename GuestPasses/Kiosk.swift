@@ -84,31 +84,16 @@ struct Kiosk {
                 // This can likely be refactored -- if we put the property in an extension we should
                 // be able to access it without needing to cast anything, especially since we don't
                 // need anything specific to guest or employee--the discounts are calculated within the protocol/function.
+                var discount: (food: PercentDiscount, merch: PercentDiscount) = (food: 0.0, merch: 0.0)
+                
                 if let guest = entrant as? Guest {
-                    do {
-                        guard let discount = try guest.discounts.retrieveDiscounts(for: guest) else {
-                            throw DiscountAccessibleError.DiscountInaccessible
-                        }
-                        print("Qualifies for these discounts: \(discount)")
-                    } catch EntrantConversionError.UnidentifiableEntrant {
-                        print("We can't identify this pass.")
-                    } catch let error {
-                        print(error)
-                    }
+                    discount = guest.discounts
                     
                 } else if let employee = entrant as? Employee {
-                    do {
-                        guard let discount = try employee.discounts.retrieveDiscounts(for: employee) else {
-                            throw DiscountAccessibleError.DiscountInaccessible
-                        }
-                        print("Qualifies for these discounts: \(discount)")
-                    } catch EntrantConversionError.UnidentifiableEntrant {
-                        print("Something is wrong.")
-                    } catch let error {
-                        print(error)
-                    }
+                    discount = employee.discounts
                 }
-            
+               
+                print("Guest qualifies for \(discount.food * 100)% discount on food, \(discount.merch * 100)% discount on merchandise.")
                 return true
             }
         }

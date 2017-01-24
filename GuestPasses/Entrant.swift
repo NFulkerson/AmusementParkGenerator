@@ -48,10 +48,17 @@ enum EmployeeType {
 
 struct Guest: Entrant, DiscountQualifiable {
     var type: GuestType
-    let discounts: DiscountAccess = DiscountAccess()
     enum GuestType {
         case classic
         case vip
+    }
+    var discounts: (food: PercentDiscount, merch: PercentDiscount) {
+        switch self.type {
+        case .classic:
+            return (food: 0.0, merch: 0.0)
+        case .vip:
+            return (food: 0.10, merch: 0.20)
+        }
     }
 }
 
