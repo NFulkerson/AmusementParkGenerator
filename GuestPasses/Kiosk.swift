@@ -37,7 +37,6 @@ struct Kiosk {
     func determinePermissions(for entrant: Entrant) -> Bool {
         switch location {
         case .Amusement:
-            print("Hello Dolly")
             // currently always returns true but we could
             // imagine a situation in which someone is unable to ride rides
             // so we'll leave this here.
@@ -59,6 +58,7 @@ struct Kiosk {
                 case .Maintenance:
                     // These location checks are ugly, but it is seemingly the best way
                     // to check against these cases without having to repeat ourselves.
+                    // However, this means we have to add more cases if this changes in any way.
                     if location != .Office {
                         return true
                     }
@@ -92,7 +92,7 @@ struct Kiosk {
                         print("Qualifies for these discounts: \(discount)")
                     } catch EntrantConversionError.UnidentifiableEntrant {
                         print("We can't identify this pass.")
-                    } catch let error as Error {
+                    } catch let error {
                         print(error)
                     }
                     
@@ -104,7 +104,7 @@ struct Kiosk {
                         print("Qualifies for these discounts: \(discount)")
                     } catch EntrantConversionError.UnidentifiableEntrant {
                         print("Something is wrong.")
-                    } catch let error as Error {
+                    } catch let error {
                         print(error)
                     }
                 }
