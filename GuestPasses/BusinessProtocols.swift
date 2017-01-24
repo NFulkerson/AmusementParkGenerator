@@ -39,7 +39,7 @@ protocol MaintenanceAccessible {
 protocol OfficeAccessible {
 }
 
-// Merch
+// MARK: - Merch
 protocol DiscountQualifiable {
-    var discounts: DiscountAccess { get }
+    var discounts: (food: PercentDiscount, merch: PercentDiscount) { get }
 }

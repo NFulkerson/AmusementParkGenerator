@@ -59,7 +59,14 @@ struct Employee: Entrant, Employable, DiscountQualifiable {
     let name: Name
     let address: HomeAddress
     var type: EmployeeType
-    let discounts: DiscountAccess = DiscountAccess()
+    var discounts: (food: PercentDiscount, merch: PercentDiscount) {
+        switch self.type {
+        case .FoodServices, .Maintenance, .RideServices:
+            return (food: 0.15, merch: 0.25)
+        case .Manager:
+            return (food: 0.25, merch: 0.25)
+        }
+    }
 }
 
 // TODO: - Extend so we can calculate whether the baby qualifies for free entry.

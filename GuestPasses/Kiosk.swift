@@ -31,7 +31,7 @@ struct AccessControlList {
 }
 
 struct Kiosk {
-    // TODO: Requires implementation
+    
     var location: KioskLocation
     
     func determinePermissions(for entrant: Entrant) -> Bool {
