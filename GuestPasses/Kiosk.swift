@@ -77,13 +77,7 @@ struct Kiosk {
         case.Restaurant, .MerchBooth:
             if entrant is DiscountQualifiable {
                 print("Checking discounts.")
-                // at this point we only know that our entrant is DiscountQualifiable, we don't know
-                // whether they are an employee or guest, so we have to try casting them in order
-                // to do more. 
-                // TODO: - REFACTOR
-                // This can likely be refactored -- if we put the property in an extension we should
-                // be able to access it without needing to cast anything, especially since we don't
-                // need anything specific to guest or employee--the discounts are calculated within the protocol/function.
+           
                 var discount: (food: PercentDiscount, merch: PercentDiscount) = (food: 0.0, merch: 0.0)
                 
                 if let guest = entrant as? Guest {

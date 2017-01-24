@@ -54,6 +54,7 @@ struct Guest: Entrant, DiscountQualifiable {
     }
     var discounts: (food: PercentDiscount, merch: PercentDiscount) {
         switch self.type {
+            // This could still be handled better.
         case .classic:
             return (food: 0.0, merch: 0.0)
         case .vip:

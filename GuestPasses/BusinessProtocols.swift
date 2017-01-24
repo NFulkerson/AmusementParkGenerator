@@ -15,7 +15,6 @@ protocol FreelyAdmissible {
 }
 
 // MARK: - Ride Privileges
-
 protocol RideAccessible {
 }
 

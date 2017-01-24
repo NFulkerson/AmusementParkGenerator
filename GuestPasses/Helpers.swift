@@ -41,12 +41,27 @@ struct Name {
         guard let middle = middle else { return "\(first) \(last)" }
         return "\(first) \(middle) \(last)"
     }
-    init(first: String, middle: String, last: String) {
+    // Perhaps there's a way to cut down on the repetition, but today
+    // is not the day to worry about it.
+    init(first: String, middle: String, last: String) throws {
+        if first.isEmpty {
+            throw NameError.firstNameMissing
+        }
+        if last.isEmpty {
+            throw NameError.lastNameMissing
+        }
         self.first = first
         self.middle = middle
         self.last = last
     }
-    init(first: String, last: String) {
+    
+    init(first: String, last: String) throws {
+        if first.isEmpty {
+            throw NameError.firstNameMissing
+        }
+        if last.isEmpty {
+            throw NameError.lastNameMissing
+        }
         self.first = first
         self.middle = nil
         self.last = last
@@ -57,12 +72,6 @@ struct Name {
         case lastNameMissing
     }
 }
-
-// This seemed like the best compromise regarding responsibility for discounts
-// It doesn't belong in Guest or Employee, as both could potentially qualify for discounts--
-// but many do not. 
-// It doesn't quite belong in the Kiosk either--the Kiosk's job is to read access permissions and values,
-// not grant them. Perhaps should be implemented in the protocol.
 
 extension Date {
     var age: Int {
