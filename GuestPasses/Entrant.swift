@@ -75,9 +75,50 @@ struct Employee: Entrant, Employable, DiscountQualifiable {
             return (food: 0.25, merch: 0.25)
         }
     }
+    
+    /// Convenience Init
+    ///
+    /// - Parameters:
+    ///   - type: The type of employee (Food Service, Ride Service, Management, Maintenance)
+    ///   - valid: Determines whether valid or invalid plug values are used. Defaults to true. Will throw error if false.
+    init(as type: EmployeeType, valid: Bool = true) throws {
+        do {
+            switch valid {
+            case false:
+                switch type {
+                    // helper for plug values.
+                case .FoodServices, .Maintenance, .RideServices:
+                    self.name = try Name(first: "", last: "Fry")
+                    self.address = try HomeAddress(street: "123 Bork Drive", city: "New New York", state: "NY")
+                case .Manager:
+                    self.name = try Name(first: "Philip", last: "Fry")
+                    self.address = try HomeAddress(street: "123 Bork Drive", city: "", state: "NY")
+                }
+            
+            default:
+                self.name = try Name(first: "Philip", last: "Fry")
+                self.address = try HomeAddress(street: "123 Bork Drive", city: "New New York", state: "NY")
+            }
+            
+        } catch let error as Name.NameError {
+            print(error)
+            throw error
+        } catch let error as HomeAddress.AddressError {
+            print(error)
+            throw error
+        } catch let error {
+            print(error)
+            throw error
+        }
+    
+        self.type = type
+        
+    }
 }
 
-// TODO: - Extend so we can calculate whether the baby qualifies for free entry.
+
+
+/// - init: String in date format yyyy-MM-dd
 struct FreeChild: Entrant, FreelyAdmissible {
     var birthDate: Date
     
@@ -90,6 +131,7 @@ struct FreeChild: Entrant, FreelyAdmissible {
             throw DOBError.dateConversionError("Couldn't create date from string.")
         }
         self.birthDate = bday
+        
         if bday.age > 5 {
             throw DOBError.dobInvalid("Child is too old to qualify for free admission.")
         } else if bday.age < 0 {

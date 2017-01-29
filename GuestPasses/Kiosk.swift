@@ -37,15 +37,15 @@ struct Kiosk {
     func determinePermissions(for entrant: Entrant) -> Bool {
         switch location {
         case .Amusement:
-            // currently always returns true but we could
-            // imagine a situation in which someone is unable to ride rides
-            // so we'll leave this here.
             if entrant is Guest {
                 let guest = entrant as! Guest
                 if guest.type == .vip {
                     print("Guest is permitted to skip lines!")
                 }
             }
+            // currently always returns true but we could
+            // imagine a situation in which someone is unable to ride rides
+            // so we'll leave this here.
             return entrant is RideAccessible
         case .Kitchen, .RideControl, .Maintenance, .Office:
             if entrant is Employee {
@@ -74,7 +74,7 @@ struct Kiosk {
             } else {
                 return false
             }
-        case.Restaurant, .MerchBooth:
+        case .Restaurant, .MerchBooth:
             if entrant is DiscountQualifiable {
                 print("Checking discounts.")
            
@@ -87,7 +87,14 @@ struct Kiosk {
                     discount = employee.discounts
                 }
                
-                print("Guest qualifies for \(discount.food * 100)% discount on food, \(discount.merch * 100)% discount on merchandise.")
+                switch location {
+                case .Restaurant:
+                    print("Guest qualifies for \(discount.food * 100)% discount on food.")
+                case .MerchBooth:
+                    print("Guest qualifies for \(discount.merch * 100)% discount on merchandise.")
+                default:
+                    break
+                }
                 return true
             }
         }
