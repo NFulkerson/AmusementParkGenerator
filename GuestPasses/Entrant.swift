@@ -8,6 +8,8 @@
 
 import Foundation
 
+// TODO: Implement generics
+
 typealias PercentDiscount = Float
 // All Entrants are, per the spec, able to access rides--so we make them adhere to the RideAccessible protocol
 // Were this to change, we could simply remove this protocol and grant privileges to other groups
