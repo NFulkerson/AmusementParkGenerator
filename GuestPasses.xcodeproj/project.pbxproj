@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D81833821E82CC8E00017B86 /* EntrantPassCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81833811E82CC8E00017B86 /* EntrantPassCardView.swift */; };
+		D81833841E82D36300017B86 /* EntrantFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81833831E82D36300017B86 /* EntrantFormViewController.swift */; };
 		D860E32C1E07C5FD0064C74A /* Kiosk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860E32B1E07C5FD0064C74A /* Kiosk.swift */; };
 		D886E0471DFE98B400F45BBC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D886E0461DFE98B400F45BBC /* AppDelegate.swift */; };
 		D886E0491DFE98B400F45BBC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D886E0481DFE98B400F45BBC /* ViewController.swift */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D81833811E82CC8E00017B86 /* EntrantPassCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntrantPassCardView.swift; sourceTree = "<group>"; };
+		D81833831E82D36300017B86 /* EntrantFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntrantFormViewController.swift; sourceTree = "<group>"; };
 		D860E32B1E07C5FD0064C74A /* Kiosk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kiosk.swift; sourceTree = "<group>"; };
 		D886E0431DFE98B400F45BBC /* GuestPasses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuestPasses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D886E0461DFE98B400F45BBC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 			children = (
 				D886E0461DFE98B400F45BBC /* AppDelegate.swift */,
 				D886E0481DFE98B400F45BBC /* ViewController.swift */,
+				D81833811E82CC8E00017B86 /* EntrantPassCardView.swift */,
+				D81833831E82D36300017B86 /* EntrantFormViewController.swift */,
 				D8AB146D1E77E62A00CFF607 /* PassPreviewViewController.swift */,
 				D886E04D1DFE98B400F45BBC /* Assets.xcassets */,
 				D886E04F1DFE98B400F45BBC /* LaunchScreen.storyboard */,
@@ -152,7 +158,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D886E0591DFE99C600F45BBC /* Entrant.swift in Sources */,
+				D81833821E82CC8E00017B86 /* EntrantPassCardView.swift in Sources */,
 				D8C0BF291E2B6FBF0031CA72 /* Helpers.swift in Sources */,
+				D81833841E82D36300017B86 /* EntrantFormViewController.swift in Sources */,
 				D8AB146E1E77E62A00CFF607 /* PassPreviewViewController.swift in Sources */,
 				D8C0BF271E2B6F870031CA72 /* BusinessProtocols.swift in Sources */,
 				D8FCC6541E0BD1B200CACF32 /* EntryError.swift in Sources */,
