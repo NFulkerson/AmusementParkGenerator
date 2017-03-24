@@ -30,6 +30,9 @@ struct AccessControlList {
     }
 }
 
+/// Kiosk is a simple struct representing a place of entry or a swipeable station. This is
+/// what returns whether the entrant has sufficient permissions, and also represents the
+/// tests conducted by the pass generator.
 struct Kiosk {
     
     var location: KioskLocation
