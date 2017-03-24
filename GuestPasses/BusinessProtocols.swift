@@ -42,3 +42,15 @@ protocol OfficeAccessible {
 protocol DiscountQualifiable {
     var discounts: (food: PercentDiscount, merch: PercentDiscount) { get }
 }
+
+// These protocols loosely define different classes of people admitted entry to the park.
+// This protocol is the base for all employees.
+protocol Employable: Addressable {
+    var type: EmployeeType { get }
+}
+
+/// This protocol defines personally identifiable information such as name and address.
+protocol Addressable {
+    var name: Name { get }
+    var address: HomeAddress { get }
+}

@@ -18,6 +18,11 @@
 		D8AB146E1E77E62A00CFF607 /* PassPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AB146D1E77E62A00CFF607 /* PassPreviewViewController.swift */; };
 		D8C0BF271E2B6F870031CA72 /* BusinessProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C0BF261E2B6F870031CA72 /* BusinessProtocols.swift */; };
 		D8C0BF291E2B6FBF0031CA72 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C0BF281E2B6FBF0031CA72 /* Helpers.swift */; };
+		D8EA2C8D1E84DCC0002DADE8 /* AccessDenied.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8EA2C8B1E84DCC0002DADE8 /* AccessDenied.wav */; };
+		D8EA2C8E1E84DCC0002DADE8 /* AccessGranted.wav in Resources */ = {isa = PBXBuildFile; fileRef = D8EA2C8C1E84DCC0002DADE8 /* AccessGranted.wav */; };
+		D8EA2C911E84DE03002DADE8 /* Guest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA2C901E84DE03002DADE8 /* Guest.swift */; };
+		D8EA2C931E84DE0E002DADE8 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA2C921E84DE0E002DADE8 /* Employee.swift */; };
+		D8EA2C961E84DF13002DADE8 /* Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA2C951E84DF13002DADE8 /* Child.swift */; };
 		D8FCC6541E0BD1B200CACF32 /* EntryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FCC6531E0BD1B200CACF32 /* EntryError.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +40,11 @@
 		D8AB146D1E77E62A00CFF607 /* PassPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassPreviewViewController.swift; sourceTree = "<group>"; };
 		D8C0BF261E2B6F870031CA72 /* BusinessProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessProtocols.swift; sourceTree = "<group>"; };
 		D8C0BF281E2B6FBF0031CA72 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		D8EA2C8B1E84DCC0002DADE8 /* AccessDenied.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AccessDenied.wav; sourceTree = "<group>"; };
+		D8EA2C8C1E84DCC0002DADE8 /* AccessGranted.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AccessGranted.wav; sourceTree = "<group>"; };
+		D8EA2C901E84DE03002DADE8 /* Guest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Guest.swift; sourceTree = "<group>"; };
+		D8EA2C921E84DE0E002DADE8 /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		D8EA2C951E84DF13002DADE8 /* Child.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Child.swift; path = ../Child.swift; sourceTree = "<group>"; };
 		D8FCC6531E0BD1B200CACF32 /* EntryError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,6 +78,7 @@
 		D886E0451DFE98B400F45BBC /* GuestPasses */ = {
 			isa = PBXGroup;
 			children = (
+				D8EA2C8F1E84DD07002DADE8 /* New Group */,
 				D886E0461DFE98B400F45BBC /* AppDelegate.swift */,
 				D886E0481DFE98B400F45BBC /* ViewController.swift */,
 				D81833811E82CC8E00017B86 /* EntrantPassCardView.swift */,
@@ -76,13 +87,41 @@
 				D886E04D1DFE98B400F45BBC /* Assets.xcassets */,
 				D886E04F1DFE98B400F45BBC /* LaunchScreen.storyboard */,
 				D886E0521DFE98B400F45BBC /* Info.plist */,
-				D886E0581DFE99C600F45BBC /* Entrant.swift */,
+				D8EA2C8A1E84DCC0002DADE8 /* AudioFiles */,
+				D8EA2C941E84DE1B002DADE8 /* Entrant Types */,
 				D8C0BF281E2B6FBF0031CA72 /* Helpers.swift */,
 				D8C0BF261E2B6F870031CA72 /* BusinessProtocols.swift */,
 				D8FCC6531E0BD1B200CACF32 /* EntryError.swift */,
 				D860E32B1E07C5FD0064C74A /* Kiosk.swift */,
 			);
 			path = GuestPasses;
+			sourceTree = "<group>";
+		};
+		D8EA2C8A1E84DCC0002DADE8 /* AudioFiles */ = {
+			isa = PBXGroup;
+			children = (
+				D8EA2C8B1E84DCC0002DADE8 /* AccessDenied.wav */,
+				D8EA2C8C1E84DCC0002DADE8 /* AccessGranted.wav */,
+			);
+			path = AudioFiles;
+			sourceTree = "<group>";
+		};
+		D8EA2C8F1E84DD07002DADE8 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		D8EA2C941E84DE1B002DADE8 /* Entrant Types */ = {
+			isa = PBXGroup;
+			children = (
+				D8EA2C951E84DF13002DADE8 /* Child.swift */,
+				D8EA2C921E84DE0E002DADE8 /* Employee.swift */,
+				D886E0581DFE99C600F45BBC /* Entrant.swift */,
+				D8EA2C901E84DE03002DADE8 /* Guest.swift */,
+			);
+			name = "Entrant Types";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,7 +184,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8EA2C8E1E84DCC0002DADE8 /* AccessGranted.wav in Resources */,
 				D886E0511DFE98B400F45BBC /* LaunchScreen.storyboard in Resources */,
+				D8EA2C8D1E84DCC0002DADE8 /* AccessDenied.wav in Resources */,
 				D886E04E1DFE98B400F45BBC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,12 +199,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D886E0591DFE99C600F45BBC /* Entrant.swift in Sources */,
+				D8EA2C931E84DE0E002DADE8 /* Employee.swift in Sources */,
+				D8EA2C911E84DE03002DADE8 /* Guest.swift in Sources */,
 				D81833821E82CC8E00017B86 /* EntrantPassCardView.swift in Sources */,
 				D8C0BF291E2B6FBF0031CA72 /* Helpers.swift in Sources */,
 				D81833841E82D36300017B86 /* EntrantFormViewController.swift in Sources */,
 				D8AB146E1E77E62A00CFF607 /* PassPreviewViewController.swift in Sources */,
 				D8C0BF271E2B6F870031CA72 /* BusinessProtocols.swift in Sources */,
 				D8FCC6541E0BD1B200CACF32 /* EntryError.swift in Sources */,
+				D8EA2C961E84DF13002DADE8 /* Child.swift in Sources */,
 				D860E32C1E07C5FD0064C74A /* Kiosk.swift in Sources */,
 				D886E0491DFE98B400F45BBC /* ViewController.swift in Sources */,
 				D886E0471DFE98B400F45BBC /* AppDelegate.swift in Sources */,
