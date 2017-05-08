@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Guest: Entrant, DiscountQualifiable {
+struct Guest: Entrant, RideAccessible, DiscountQualifiable {
     var type: GuestType
     enum GuestType {
         case classic

@@ -8,12 +8,10 @@
 
 import Foundation
 
-// TODO: Implement generics
-
 typealias PercentDiscount = Float
-// All Entrants are, per the spec, able to access rides--so we make them adhere to the RideAccessible protocol
-// Were this to change, we could simply remove this protocol and grant privileges to other groups
-protocol Entrant: RideAccessible {
+
+// Foresight was good: Vendors do not have ride access, so it's removed and granted to appropriate groups.
+protocol Entrant {
     // All entrants can swipe a pass, whether guest or employee, so swipe resides here.
     func swipe(kiosk: Kiosk) -> Bool
 }

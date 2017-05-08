@@ -8,6 +8,12 @@
 
 import Foundation
 
+/// Employee Type
+///
+/// - FoodServices: Represents kitchen and restaurant staff.
+/// - RideServices: Represents ride operators.
+/// - Maintenance: Represents maintenance workers.
+/// - Manager: Represents managerial staff.
 enum EmployeeType {
     case FoodServices
     case RideServices
@@ -15,7 +21,7 @@ enum EmployeeType {
     case Manager
 }
 
-struct Employee: Entrant, Employable, DiscountQualifiable {
+struct Employee: Entrant, RideAccessible, Employable, DiscountQualifiable {
     let name: Name
     let address: HomeAddress
     var type: EmployeeType

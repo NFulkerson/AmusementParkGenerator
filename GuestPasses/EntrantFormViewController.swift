@@ -5,6 +5,7 @@
 //  Created by Nathan Fulkerson on 3/23/17.
 //  Copyright © 2017 Nathan Fulkerson. All rights reserved.
 //
+// Entrant Form View is an implementation of Screen Mockup 1.
 
 import UIKit
 
@@ -29,18 +30,18 @@ class EntrantFormViewController: UIViewController {
         button1.backgroundColor = .blue
         button2.backgroundColor = .red
         let stackView = UIStackView(arrangedSubviews: [button1,button2])
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.alignment = .fill
-        stackView.spacing = 15
+        stackView.spacing = 0
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            stackView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -50.0),
-            stackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 50.0),
-            stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 20.0),
-            stackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -20.0)
+            stackView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: 0.0),
+            stackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0.0),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0.0),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0.0)
         ])
     }
     

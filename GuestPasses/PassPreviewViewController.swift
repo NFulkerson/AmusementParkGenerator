@@ -5,6 +5,7 @@
 //  Created by Nathan Fulkerson on 3/14/17.
 //  Copyright © 2017 Nathan Fulkerson. All rights reserved.
 //
+// Pass Preview is the implementation of Treehouse's Screen 2 Mockup.
 
 import UIKit
 

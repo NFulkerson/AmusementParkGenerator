@@ -9,7 +9,7 @@
 import Foundation
 
 /// - init: String in date format yyyy-MM-dd
-struct FreeChild: Entrant, FreelyAdmissible {
+struct FreeChild: Entrant, RideAccessible, FreelyAdmissible {
     var birthDate: Date
     
     init(birthDate: String) throws {
