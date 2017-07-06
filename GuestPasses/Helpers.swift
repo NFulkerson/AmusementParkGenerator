@@ -41,8 +41,7 @@ struct Name {
         guard let middle = middle else { return "\(first) \(last)" }
         return "\(first) \(middle) \(last)"
     }
-    // Perhaps there's a way to cut down on the repetition, but today
-    // is not the day to worry about it.
+    
     init(first: String, middle: String, last: String) throws {
         if first.isEmpty {
             throw NameError.firstNameMissing

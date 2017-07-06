@@ -13,14 +13,23 @@ struct Guest: Entrant, RideAccessible, DiscountQualifiable {
     enum GuestType {
         case classic
         case vip
+        case senior
+        case seasonPass
     }
     var discounts: (food: PercentDiscount, merch: PercentDiscount) {
         switch self.type {
-        // This could still be handled better.
         case .classic:
             return (food: 0.0, merch: 0.0)
         case .vip:
             return (food: 0.10, merch: 0.20)
+        case .senior:
+            return (food: 0.10, merch: 0.10)
+        case .seasonPass:
+            return (food: 0.10, merch: 0.20)
         }
     }
+}
+
+struct Senior: Identifiable, LineSkippable {
+    var name: Name
 }

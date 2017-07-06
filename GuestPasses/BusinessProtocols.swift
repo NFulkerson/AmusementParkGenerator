@@ -49,8 +49,13 @@ protocol Employable: Addressable {
     var type: EmployeeType { get }
 }
 
-/// This protocol defines personally identifiable information such as name and address.
-protocol Addressable {
+
+/// - name: requires a variable property of type Name
+protocol Identifiable {
     var name: Name { get }
+}
+
+/// This protocol defines personally identifiable information such as name and address.
+protocol Addressable: Identifiable {
     var address: HomeAddress { get }
 }

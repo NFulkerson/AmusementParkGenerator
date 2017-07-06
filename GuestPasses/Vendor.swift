@@ -12,6 +12,8 @@ struct Vendor: Entrant, Addressable {
     let name: Name
     let address: HomeAddress
     let company: VendorCompany
+    let birthDate: Date
+    let visitDate: Date
     
     enum VendorCompany {
         case acme, orkin, fedex, nwElectrical

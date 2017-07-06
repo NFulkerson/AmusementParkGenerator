@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8106B3F1F0B8E66005E6656 /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8106B3E1F0B8E66005E6656 /* Pass.swift */; };
 		D81833821E82CC8E00017B86 /* EntrantPassCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81833811E82CC8E00017B86 /* EntrantPassCardView.swift */; };
 		D81833841E82D36300017B86 /* EntrantFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81833831E82D36300017B86 /* EntrantFormViewController.swift */; };
 		D860E32C1E07C5FD0064C74A /* Kiosk.swift in Sources */ = {isa = PBXBuildFile; fileRef = D860E32B1E07C5FD0064C74A /* Kiosk.swift */; };
@@ -18,6 +19,7 @@
 		D886E0511DFE98B400F45BBC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D886E04F1DFE98B400F45BBC /* LaunchScreen.storyboard */; };
 		D886E0591DFE99C600F45BBC /* Entrant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D886E0581DFE99C600F45BBC /* Entrant.swift */; };
 		D8AB146E1E77E62A00CFF607 /* PassPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AB146D1E77E62A00CFF607 /* PassPreviewViewController.swift */; };
+		D8B9AF161EFBAC5D0054CD11 /* EntrantTypeProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B9AF151EFBAC5D0054CD11 /* EntrantTypeProtocols.swift */; };
 		D8BD55551E96352D00B1D210 /* Vendor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BD55541E96352D00B1D210 /* Vendor.swift */; };
 		D8C0BF271E2B6F870031CA72 /* BusinessProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C0BF261E2B6F870031CA72 /* BusinessProtocols.swift */; };
 		D8C0BF291E2B6FBF0031CA72 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C0BF281E2B6FBF0031CA72 /* Helpers.swift */; };
@@ -31,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D8106B3E1F0B8E66005E6656 /* Pass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
 		D81833811E82CC8E00017B86 /* EntrantPassCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntrantPassCardView.swift; sourceTree = "<group>"; };
 		D81833831E82D36300017B86 /* EntrantFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntrantFormViewController.swift; sourceTree = "<group>"; };
 		D860E32B1E07C5FD0064C74A /* Kiosk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kiosk.swift; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		D886E0521DFE98B400F45BBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D886E0581DFE99C600F45BBC /* Entrant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entrant.swift; sourceTree = "<group>"; };
 		D8AB146D1E77E62A00CFF607 /* PassPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassPreviewViewController.swift; sourceTree = "<group>"; };
+		D8B9AF151EFBAC5D0054CD11 /* EntrantTypeProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntrantTypeProtocols.swift; sourceTree = "<group>"; };
 		D8BD55541E96352D00B1D210 /* Vendor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vendor.swift; sourceTree = "<group>"; };
 		D8C0BF261E2B6F870031CA72 /* BusinessProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessProtocols.swift; sourceTree = "<group>"; };
 		D8C0BF281E2B6FBF0031CA72 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -86,23 +90,30 @@
 		D886E0451DFE98B400F45BBC /* GuestPasses */ = {
 			isa = PBXGroup;
 			children = (
+				D8EA2C8A1E84DCC0002DADE8 /* AudioFiles */,
+				D8EA2C941E84DE1B002DADE8 /* Entrant Types */,
 				D8EA2C971E84E4DD002DADE8 /* Helpers */,
+				D89A97A91EF9652F00BAD24B /* Views */,
 				D886E0461DFE98B400F45BBC /* AppDelegate.swift */,
-				D886E0481DFE98B400F45BBC /* ViewController.swift */,
-				D81833811E82CC8E00017B86 /* EntrantPassCardView.swift */,
-				D81833831E82D36300017B86 /* EntrantFormViewController.swift */,
-				D8AB146D1E77E62A00CFF607 /* PassPreviewViewController.swift */,
 				D886E04D1DFE98B400F45BBC /* Assets.xcassets */,
 				D886E04F1DFE98B400F45BBC /* LaunchScreen.storyboard */,
 				D886E0521DFE98B400F45BBC /* Info.plist */,
-				D8EA2C8A1E84DCC0002DADE8 /* AudioFiles */,
-				D8EA2C941E84DE1B002DADE8 /* Entrant Types */,
-				D8C0BF281E2B6FBF0031CA72 /* Helpers.swift */,
 				D8C0BF261E2B6F870031CA72 /* BusinessProtocols.swift */,
 				D8FCC6531E0BD1B200CACF32 /* EntryError.swift */,
 				D860E32B1E07C5FD0064C74A /* Kiosk.swift */,
 			);
 			path = GuestPasses;
+			sourceTree = "<group>";
+		};
+		D89A97A91EF9652F00BAD24B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D886E0481DFE98B400F45BBC /* ViewController.swift */,
+				D81833811E82CC8E00017B86 /* EntrantPassCardView.swift */,
+				D81833831E82D36300017B86 /* EntrantFormViewController.swift */,
+				D8AB146D1E77E62A00CFF607 /* PassPreviewViewController.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		D8EA2C8A1E84DCC0002DADE8 /* AudioFiles */ = {
@@ -123,6 +134,8 @@
 				D8BD55541E96352D00B1D210 /* Vendor.swift */,
 				D876CCAE1EC0247300D9F401 /* Contractor.swift */,
 				D8EA2C901E84DE03002DADE8 /* Guest.swift */,
+				D8106B3E1F0B8E66005E6656 /* Pass.swift */,
+				D8B9AF151EFBAC5D0054CD11 /* EntrantTypeProtocols.swift */,
 			);
 			name = "Entrant Types";
 			sourceTree = "<group>";
@@ -132,6 +145,7 @@
 			children = (
 				D8EA2C981E84E4ED002DADE8 /* ColorHelpers.swift */,
 				D886731D1EBAF68C00D63CB8 /* SampleData.swift */,
+				D8C0BF281E2B6FBF0031CA72 /* Helpers.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -222,7 +236,9 @@
 				D8C0BF271E2B6F870031CA72 /* BusinessProtocols.swift in Sources */,
 				D876CCAF1EC0247300D9F401 /* Contractor.swift in Sources */,
 				D8FCC6541E0BD1B200CACF32 /* EntryError.swift in Sources */,
+				D8B9AF161EFBAC5D0054CD11 /* EntrantTypeProtocols.swift in Sources */,
 				D8EA2C961E84DF13002DADE8 /* Child.swift in Sources */,
+				D8106B3F1F0B8E66005E6656 /* Pass.swift in Sources */,
 				D860E32C1E07C5FD0064C74A /* Kiosk.swift in Sources */,
 				D8BD55551E96352D00B1D210 /* Vendor.swift in Sources */,
 				D886E0491DFE98B400F45BBC /* ViewController.swift in Sources */,

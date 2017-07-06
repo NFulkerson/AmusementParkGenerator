@@ -46,10 +46,9 @@ struct Kiosk {
                     print("Guest is permitted to skip lines!")
                 }
             }
-            // currently always returns true but we could
-            // imagine a situation in which someone is unable to ride rides
-            // so we'll leave this here.
+            
             return entrant is RideAccessible
+        
         case .Kitchen, .RideControl, .Maintenance, .Office:
             if entrant is Employee {
                 let employee = entrant as! Employee
@@ -77,6 +76,7 @@ struct Kiosk {
             } else {
                 return false
             }
+        
         case .Restaurant, .MerchBooth:
             if entrant is DiscountQualifiable {
                 print("Checking discounts.")

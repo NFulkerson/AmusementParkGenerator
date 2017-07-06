@@ -38,25 +38,11 @@ struct Employee: Entrant, RideAccessible, Employable, DiscountQualifiable {
     ///
     /// - Parameters:
     ///   - type: The type of employee (Food Service, Ride Service, Management, Maintenance)
-    ///   - valid: Determines whether valid or invalid plug values are used. Defaults to true. Will throw error if false.
-    init(as type: EmployeeType, valid: Bool = true) throws {
+    init(as type: EmployeeType, with name: Name, address: HomeAddress) throws {
         do {
-            switch valid {
-            case false:
-                switch type {
-                // helper for plug values.
-                case .FoodServices, .Maintenance, .RideServices:
-                    self.name = try Name(first: "", last: "Fry")
-                    self.address = try HomeAddress(street: "123 Bork Drive", city: "New New York", state: "NY")
-                case .Manager:
-                    self.name = try Name(first: "Philip", last: "Fry")
-                    self.address = try HomeAddress(street: "123 Bork Drive", city: "", state: "NY")
-                }
-                
-            default:
-                self.name = try Name(first: "Philip", last: "Fry")
-                self.address = try HomeAddress(street: "123 Bork Drive", city: "New New York", state: "NY")
-            }
+            
+            self.name = try name
+            self.address = try address
             
         } catch let error as Name.NameError {
             print(error)

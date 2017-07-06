@@ -29,7 +29,12 @@ extension Entrant {
     }
 }
 
-
+enum EntrantType {
+    case Guest
+    case Employee
+    case Manager
+    case Vendor
+}
 
 
 
