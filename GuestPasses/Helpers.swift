@@ -33,45 +33,6 @@ struct HomeAddress {
     }
 }
 
-struct Name {
-    let first: String
-    let middle: String?
-    let last: String
-    var full: String {
-        guard let middle = middle else { return "\(first) \(last)" }
-        return "\(first) \(middle) \(last)"
-    }
-    
-    init(first: String, middle: String, last: String) throws {
-        if first.isEmpty {
-            throw NameError.firstNameMissing
-        }
-        if last.isEmpty {
-            throw NameError.lastNameMissing
-        }
-        self.first = first
-        self.middle = middle
-        self.last = last
-    }
-    
-    init(first: String, last: String) throws {
-        if first.isEmpty {
-            throw NameError.firstNameMissing
-        }
-        if last.isEmpty {
-            throw NameError.lastNameMissing
-        }
-        self.first = first
-        self.middle = nil
-        self.last = last
-    }
-    
-    enum NameError: Error {
-        case firstNameMissing
-        case lastNameMissing
-    }
-}
-
 extension Date {
     var age: Int {
         return Calendar.current.dateComponents([.year], from: self, to: Date()).year!

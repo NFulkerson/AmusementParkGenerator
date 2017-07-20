@@ -49,10 +49,30 @@ protocol Employable: Addressable {
     var type: EmployeeType { get }
 }
 
+protocol Nameable {
+    var firstName: String? { get set }
+    var middleName: String? { get set }
+    var lastName: String? { get set }
+    
+}
+
+extension Nameable {
+    init(firstName: String?, lastName: String?) throws {
+        guard let first = firstName, let last = lastName else {
+            throw NameError.invalidData
+        }
+        
+        try self.init(firstName: first, lastName: last)
+    }
+}
+
+enum NameError: Error {
+    case invalidData
+}
+
 
 /// - name: requires a variable property of type Name
-protocol Identifiable {
-    var name: Name { get }
+protocol Identifiable: Nameable {
 }
 
 /// This protocol defines personally identifiable information such as name and address.

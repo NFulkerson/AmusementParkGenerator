@@ -31,5 +31,7 @@ struct Guest: Entrant, RideAccessible, DiscountQualifiable {
 }
 
 struct Senior: Identifiable, LineSkippable {
-    var name: Name
+    var firstName: String?
+    var middleName: String?
+    var lastName: String?
 }

@@ -9,7 +9,9 @@
 import Foundation
 
 struct Vendor: Entrant, Addressable {
-    let name: Name
+    var firstName: String?
+    var middleName: String?
+    var lastName: String?
     let address: HomeAddress
     let company: VendorCompany
     let birthDate: Date
@@ -18,4 +20,5 @@ struct Vendor: Entrant, Addressable {
     enum VendorCompany {
         case acme, orkin, fedex, nwElectrical
     }
+    
 }

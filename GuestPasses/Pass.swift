@@ -39,7 +39,7 @@ struct Pass {
         enum Guest: RideAccessible {
             case classic
             case vip
-            case senior(name: Name, birthday: Date)
+            case senior(firstName: String, lastName: String, birthday: Date)
             case child(Date)
             case seasonal
         }

@@ -9,7 +9,9 @@
 import Foundation
 
 struct Contractor: Employable {
-    let name: Name
+    var firstName: String?
+    var middleName: String?
+    var lastName: String?
     let address: HomeAddress
     var type: EmployeeType
     

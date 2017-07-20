@@ -22,8 +22,10 @@ enum EmployeeType {
 }
 
 struct Employee: Entrant, RideAccessible, Employable, DiscountQualifiable {
-    let name: Name
-    let address: HomeAddress
+    var firstName: String?
+    var middleName: String?
+    var lastName: String?
+    var address: HomeAddress
     var type: EmployeeType
     var discounts: (food: PercentDiscount, merch: PercentDiscount) {
         switch self.type {
@@ -38,24 +40,18 @@ struct Employee: Entrant, RideAccessible, Employable, DiscountQualifiable {
     ///
     /// - Parameters:
     ///   - type: The type of employee (Food Service, Ride Service, Management, Maintenance)
-    init(as type: EmployeeType, with name: Name, address: HomeAddress) throws {
+    init(as type: EmployeeType, with firstName: String?, lastName: String?, address: HomeAddress) throws {
         do {
             
-            self.name = try name
-            self.address = try address
+            try self.init(firstName: firstName, lastName: lastName)
+            self.address = address
+            self.type = type
             
-        } catch let error as Name.NameError {
-            print(error)
-            throw error
-        } catch let error as HomeAddress.AddressError {
-            print(error)
-            throw error
+            
         } catch let error {
             print(error)
             throw error
         }
-        
-        self.type = type
         
     }
 }

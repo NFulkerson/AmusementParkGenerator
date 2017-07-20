@@ -16,7 +16,6 @@ class ViewController: UIViewController {
         let guest = Guest(type: .vip)
         checkPermissions(for: guest, in: rooms)
         
-//        let employee = Employee(as: .Maintenance, with: try Name(first:"", last: ""), address: HomeAddress(street: "Barker Street", city: "Zillington", state: "WY"))
 
     }
 
